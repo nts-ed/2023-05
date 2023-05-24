@@ -36,7 +36,7 @@ PRIMARY KEY (`unit_id`) USING BTREE
 # t_stock テーブル
 DROP TABLE IF EXISTS `t_stock`;
 CREATE TABLE IF NOT EXISTS `t_stock` (
-`id` VARCHAR(6) NOT NULL COMMENT '在庫商品ID',
+`stock_id` VARCHAR(6) NOT NULL COMMENT '在庫商品ID',
 `name` VARCHAR(50) NOT NULL COMMENT '在庫商品名称',
 `unit_id` INT(11) NOT NULL COMMENT '単位ID',
 `stock_num` INT(11) DEFAULT 0 NOT NULL COMMENT '在庫数量',
@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS `t_stock` (
 `version` SMALLINT DEFAULT 1 COMMENT '楽観鎖',
 PRIMARY KEY (`id`) USING BTREE,
 CONSTRAINT fk_t_stock_unit_id FOREIGN KEY (unit_id) REFERENCES m_unit(unit_id) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ;
 
 
 # t_stock_io テーブル
